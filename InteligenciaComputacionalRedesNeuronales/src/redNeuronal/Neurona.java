@@ -5,7 +5,12 @@
  */
 package redNeuronal;
 
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -18,7 +23,7 @@ public class Neurona {
     private double valorAjuste;
     public double humbral;
 
-    public Neurona(double valorA,int hum) {
+    public Neurona(double valorA, int hum) {
         this.matriz = new double[28][28];
         this.activada = false;
         this.valorAjuste = valorA;
@@ -61,6 +66,22 @@ public class Neurona {
                     this.matriz[i][j] += this.matriz[i][j] * this.valorAjuste;
                 }
             }
+        }
+    }
+
+    public void pintarImagen(int n) {
+        try {
+            BufferedImage image = new BufferedImage(28, 28, BufferedImage.TYPE_BYTE_GRAY);
+            for (int i = 0; i < 28; i++) {
+                for (int j = 0; j < 28; j++) {
+                    float a = (float) matriz[i][j];
+                    Color newColor = new Color(a, a, a);
+                    image.setRGB(j, i, newColor.getRGB());
+                }
+            }
+            File output = new File("neurona" + n + ".jpg");
+            ImageIO.write(image, "jpg", output);
+        } catch (IOException e) {
         }
     }
 }
