@@ -19,9 +19,9 @@ public class RedNeuronal {
 
     public RedNeuronal() {
         System.out.println("Creando la red neuronal");
-        this.capaEntrada = new Capa("Capa de entrada", 784);
-        this.capaOculta = new Capa("Capa de oculta", 784);
-        this.capaSalida = new Capa("Capa de salida", 10);
+        this.capaEntrada = new Capa("Capa de entrada", 784, 0);
+        this.capaOculta = new Capa("Capa de oculta", 784, 784);
+        this.capaSalida = new Capa("Capa de salida", 10, 784);
         System.out.println("Finalizada la creación de la red neuronal");
     }
 

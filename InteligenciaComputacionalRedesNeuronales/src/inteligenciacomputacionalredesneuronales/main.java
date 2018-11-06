@@ -7,6 +7,7 @@ package inteligenciacomputacionalredesneuronales;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 import redNeuronal.RedNeuronal;
 import util.lecturaFichero;
 
@@ -22,12 +23,11 @@ public class main {
      */
     public static void main(String[] args) throws IOException {
         //lecturaFichero lectura = new lecturaFichero();
-        
+
         //ArrayList<float[][]> trainingImages=lectura.getTrainingImages();
         //int trainingLabels[]=lectura.getTrainingLabels();
-        
-        RedNeuronal redNeuronal=new RedNeuronal();
-        
+        RedNeuronal redNeuronal = new RedNeuronal();
+
     }
-    
+
 }
