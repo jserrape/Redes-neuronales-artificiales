@@ -18,22 +18,16 @@ public class main {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
-        lecturaFichero lectura = new lecturaFichero();
+        //lecturaFichero lectura = new lecturaFichero();
         
-        ArrayList<float[][]> trainingImages=lectura.getTrainingImages();
-        int trainingLabels[]=lectura.getTrainingLabels();
+        //ArrayList<float[][]> trainingImages=lectura.getTrainingImages();
+        //int trainingLabels[]=lectura.getTrainingLabels();
         
-        RedNeuronal redPerceptron=new RedNeuronal(0.3,2);
+        RedNeuronal redNeuronal=new RedNeuronal();
         
-        int errores=0;
-        for(int i=0;i<trainingImages.size();i++){
-            if(redPerceptron.entrenarRedImagen(trainingImages.get(i), trainingLabels[i])){
-                ++errores;
-            }
-        }
-        System.out.println("Errores de entrenamiento: "+errores);
     }
     
 }

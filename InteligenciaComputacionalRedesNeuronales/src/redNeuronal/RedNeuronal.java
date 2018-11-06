@@ -12,32 +12,17 @@ import java.util.ArrayList;
  * @author juanca
  */
 public class RedNeuronal {
-    
-    Neurona neuronas[];
-    
-    public RedNeuronal(double valorAjuste, int humbral) {
-        this.neuronas = new Neurona[10];
-        for (int i = 0; i < 10; i++) {
-            this.neuronas[i] = new Neurona(valorAjuste, humbral);
-        }
+
+    private final Capa capaEntrada;
+    private final Capa capaOculta;
+    private final Capa capaSalida;
+
+    public RedNeuronal() {
+        System.out.println("Creando la red neuronal");
+        this.capaEntrada = new Capa("Capa de entrada", 784);
+        this.capaOculta = new Capa("Capa de oculta", 784);
+        this.capaSalida = new Capa("Capa de salida", 10);
+        System.out.println("Finalizada la creación de la red neuronal");
     }
-    
-    
-    public boolean entrenarRedImagen(float imagen[][], int etiqueta) {
-        double mejorPeso = neuronas[0].obtenerProducto(imagen), aux;
-        int mejorNeurona = 0;
-        for (int i = 1; i < 10; i++) {
-            aux = neuronas[i].obtenerProducto(imagen);
-            if (aux > mejorPeso) {
-                mejorPeso = aux;
-                mejorNeurona = i;
-            }
-        }
-        
-        for (int i = 0; i < 10; i++) {
-            neuronas[i].entrenar(i == etiqueta);
-        }
-        
-        return mejorNeurona == etiqueta;
-    }
+
 }
